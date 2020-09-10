@@ -9,53 +9,62 @@ function playSound(event) {
 
     if (event.keyCode == 65) { // "a"
         // Play A-Clap
-        setKeyCode('Clap', 'A');
+        setKeyCode('clap', 'A');
 
     } else if (event.keyCode == 83) { // "s"
         // Play S-hihat
-        setKeyCode('Hihat', 'S');
+        setKeyCode('hihat', 'S');
 
     } else if (event.keyCode == 68) { // "d"
         // Play D-kick
-        setKeyCode('Kick', 'D');
+        setKeyCode('kick', 'D');
 
     } else if (event.keyCode == 70) { // "f"
         // Play F-Openhat
-        setKeyCode('Openhat', 'F');
+        setKeyCode('openhat', 'F');
 
     } else if (event.keyCode == 71) { // "g"
         // Play G-Boom
-        setKeyCode('Boom', 'G');
+        setKeyCode('boom', 'G');
 
     } else if (event.keyCode == 72) { // "h"
         // Play H-Ride
-        setKeyCode('Ride', 'H');
+        setKeyCode('ride', 'H');
 
     } else if (event.keyCode == 74) { // "j"
         // Play J-Snare
-        setKeyCode('Snare', 'J');
+        setKeyCode('snare', 'J');
 
     } else if (event.keyCode == 75) { // "k"
         // Play K-Tom
-        setKeyCode('Tom', 'K');
+        setKeyCode('tom', 'K');
 
     } else if (event.keyCode == 76) { // "l"
         // Play L-Tink
-        setKeyCode('Tink', 'L');
+        setKeyCode('tink', 'L');
 
     }
 }
 
-// Transition End FUnction
-function removePlaying(event) {
-    event.target.classList.remove("playing");
-}
-
 function setKeyCode(name, code) {
-    event.keyCode == code;
     let audio = document.getElementById(name);
     audio.currentTime = 0;
     audio.play();
-    document.getElementById(name).classList.add("playing");
-    document.getElementById(name).addEventListener('transitionend', removePlaying);
+    document.getElementById(code).classList.add("playing");
+}
+
+// Add transition end listeners
+document.getElementById('A').addEventListener('transitionend', removePlaying);
+document.getElementById('S').addEventListener('transitionend', removePlaying);
+document.getElementById('D').addEventListener('transitionend', removePlaying);
+document.getElementById('F').addEventListener('transitionend', removePlaying);
+document.getElementById('G').addEventListener('transitionend', removePlaying);
+document.getElementById('H').addEventListener('transitionend', removePlaying);
+document.getElementById('J').addEventListener('transitionend', removePlaying);
+document.getElementById('K').addEventListener('transitionend', removePlaying);
+document.getElementById('L').addEventListener('transitionend', removePlaying);
+
+// Transition End FUnction
+function removePlaying(event) {
+    event.target.classList.remove("playing");
 }
